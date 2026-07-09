@@ -1,75 +1,217 @@
-## 📥 Step 1: Download Dataset from Kaggle
+<h1 align="center">📊 ETL Pipeline for Sales Data Analysis</h1>
 
-```python
-import os
-import zipfile
-from kaggle.api.kaggle_api_extended import KaggleApi
+<p align="center">
+<b>Kaggle API | Python | Pandas | MySQL | SQLAlchemy | SQL | Jupyter Notebook</b>
+</p>
 
-# Initialize and authenticate the Kaggle API
-api = KaggleApi()
-api.authenticate()
+<hr>
 
-# Kaggle dataset slug
-dataset_slug = "vikas605/sales-profit"
+<h2>📌 Project Overview</h2>
 
-print("Downloading dataset archive...")
+<p>
+This project demonstrates an end-to-end <b>ETL (Extract, Transform, Load)</b> pipeline that automatically downloads a sales dataset from Kaggle using the Kaggle API, cleans and transforms the data using Python (Pandas), loads it into a MySQL database, and performs SQL-based business analysis.
+</p>
 
-# Download the dataset as a ZIP archive
-api.dataset_download_files(
-    dataset_slug,
-    path=".",
-    unzip=False
-)
+<hr>
 
-# Name of the downloaded ZIP file
-zip-filename = "sales-profit.zip"
+<h2>🛠 Tech Stack</h2>
 
-print(f"Extracting {zip_filename}...")
+<ul>
+<li>🐍 Python</li>
+<li>📓 Jupyter Notebook</li>
+<li>📦 Kaggle API</li>
+<li>🐼 Pandas</li>
+<li>🗄 MySQL Workbench</li>
+<li>🔗 SQLAlchemy</li>
+<li>🐬 PyMySQL</li>
+<li>💻 SQL</li>
+<li>🌐 Git & GitHub</li>
+</ul>
 
-# Extract the ZIP archive
-with zipfile.ZipFile(zip_filename, "r") as zip_ref:
-    zip_ref.extractall(".")
+<hr>
 
-print("✅ Success! Dataset downloaded and extracted successfully.")
+<h2>📂 Data Source</h2>
 
+<p>
+<b>Source:</b> Kaggle
+</p>
 
-Downloading dataset archive...
+<p>
+The dataset contains customer order transactions including:
+</p>
 
-Dataset URL: https://www.kaggle.com/datasets/vikas605/sales-profit
-Extracting sales-profit.zip...
-✨ Success! The zip file was downloaded and extracted. 'sales_profit.csv' is ready!
-print("📄 sales_profit.csv is ready for the ETL pipeline.")
-```
-## 📥 Step 2: Import Libraries load data set
+<ul>
+<li>Order Information</li>
+<li>Customer Details</li>
+<li>Product Category</li>
+<li>Sales</li>
+<li>Quantity</li>
+<li>Discount</li>
+<li>Profit</li>
+<li>Region</li>
+<li>State</li>
+<li>Order Date</li>
+</ul>
 
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import warnings
-warnings.filterwarnings('ignore')
+<hr>
 
-import pandas as pd
-import os
-print(os.listdir())
+<h2>⭐ Project Features</h2>
 
-import pandas as pd
-df = pd.read_csv("sales_profit.csv", encoding="latin1")
-df.head()
+<h3>📌 Business Problem</h3>
 
+<p>
+Retail companies generate thousands of sales transactions every day. Raw CSV files are difficult to analyze efficiently and require preprocessing before business reporting.
+</p>
 
-df = df.rename(columns={'Order ID':'order_ID', 'City':'city'})
+<h3>🎯 Project Goal</h3>
 
-df.shape
+<ul>
+<li>Extract data automatically using Kaggle API.</li>
+<li>Transform and clean raw sales data.</li>
+<li>Load processed data into MySQL.</li>
+<li>Perform SQL analysis.</li>
+<li>Generate business insights.</li>
+</ul>
 
-df.columns = df.columns.str.lower()
+<hr>
 
-df.columns
+<h2>⚙ ETL Workflow</h2>
 
-df.head(5)
+<h3>📥 Extract</h3>
 
-```python
+<ul>
+<li>Connected to Kaggle API.</li>
+<li>Downloaded dataset automatically.</li>
+<li>Extracted ZIP archive using Python.</li>
+</ul>
 
+<h3>🔄 Transform</h3>
+
+<ul>
+<li>Data Cleaning</li>
+<li>Rename Columns</li>
+<li>Handle Missing Values</li>
+<li>Convert Data Types</li>
+<li>Create Cost Column</li>
+<li>Feature Engineering</li>
+</ul>
+
+<h3>📤 Load</h3>
+
+<ul>
+<li>Create MySQL Database</li>
+<li>Create SQL Table</li>
+<li>Insert Records using SQLAlchemy</li>
+<li>Validate Loaded Data</li>
+</ul>
+
+<hr>
+
+<h2>📊 SQL Analysis</h2>
+
+<p>Performed SQL analysis including:</p>
+
+<ul>
+<li>Total Sales by Category</li>
+<li>Top Selling Products</li>
+<li>Regional Sales Analysis</li>
+<li>Monthly Sales Trend</li>
+<li>Customer Purchase Analysis</li>
+<li>Profit Analysis</li>
+<li>Discount Impact</li>
+</ul>
+
+<hr>
+
+<h2>📈 Business Impact</h2>
+
+<ul>
+<li>Automated data extraction from Kaggle.</li>
+<li>Improved data quality using Python.</li>
+<li>Centralized data inside MySQL.</li>
+<li>Enabled SQL-based business reporting.</li>
+<li>Reduced manual data preparation.</li>
+</ul>
+
+<hr>
+
+<h2>📁 Project Structure</h2>
+
+<pre>
+ETL-Pipeline/
+│
+├── data/
+│     └── sales_profit.csv
+│
+├── notebooks/
+│     └── ETL_Pipeline.ipynb
+│
+├── sql/
+│     └── analysis_queries.sql
+│
+├── images/
+│
+├── README.md
+│
+└── requirements.txt
+</pre>
+
+<hr>
+
+<h2>🔄 ETL Pipeline Flow</h2>
+
+<pre>
+Kaggle Dataset
+      │
+      ▼
+ Kaggle API
+      │
+      ▼
+ Download ZIP
+      │
+      ▼
+ Extract CSV
+      │
+      ▼
+ Python (Pandas)
+      │
+Data Cleaning
+Data Transformation
+Feature Engineering
+      │
+      ▼
+ MySQL Database
+      │
+      ▼
+ SQL Analysis
+      │
+      ▼
+ Business Insights
+</pre>
+
+<hr>
+
+<h2>💼 Skills Demonstrated</h2>
+
+<ul>
+<li>ETL Pipeline</li>
+<li>Python</li>
+<li>Pandas</li>
+<li>Kaggle API</li>
+<li>MySQL</li>
+<li>SQLAlchemy</li>
+<li>SQL</li>
+<li>Data Cleaning</li>
+<li>Feature Engineering</li>
+<li>Business Analysis</li>
+<li>Git & GitHub</li>
+</ul>
+
+<hr>
+
+<p align="center">
+⭐ If you found this project useful, consider giving it a star!
+</p>
 
 
 
